@@ -1,0 +1,32 @@
+a{
+  text-decoration: none !important;  
+}
+.btn-body{
+    height: 30px;
+    width:auto;
+    color: white;
+    display: flex;
+    margin: 3px auto;
+    align-items:center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 5px;
+    padding:auto;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+.btn-title{
+    font-size: x-small;
+    color: white;
+    margin: 4px auto;
+}
+.btn-body.active{
+   color: rgb(230, 54, 157);
+   
+}
+.btn-body:hover {
+    background-color: rgb(206, 53, 147);
+  }
+  .btn-body.active p {
+    color: rgb(230, 54, 157); /* Ensure the text color changes when active */
+  }
