@@ -41,8 +41,10 @@ function audioPlayer({currentTrack,
     useEffect(() => {
       if (audioRef.current.src) {
         if (isPlaying) {
-          audioRef.current.play().catch(error => console.error('Error playing audio:', error));;
-          startTimer();
+          audioRef.current.play()
+          //startTimer();
+          .then(() => startTimer())
+          .catch(error => console.error('Error playing audio:', error));;
         } else {
           clearInterval(intervalRef.current);
           audioRef.current.pause();
@@ -66,9 +68,14 @@ function audioPlayer({currentTrack,
       setTrackProgress(audioRef.current.currentTime);
   
       if (isReady.current) {
-        audioRef.current.play().catch(error => console.error('Error playing audio:', error));;;
-        setIsPlaying(true);
-        startTimer();
+        audioRef.current.play()
+        // setIsPlaying(true);
+        // startTimer();
+        .then(() => {
+          setIsPlaying(true);
+          startTimer();
+        })
+        .catch(error => console.error('Error playing audio:', error));;;
       } else {
         isReady.current = true;
       }
